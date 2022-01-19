@@ -8,6 +8,11 @@ namespace HealthSystemV2._0
 {
     class Program
     {
+
+        static void RangeChecking()
+        {
+            if
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("HealthSystemV2.0");
