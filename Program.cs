@@ -11,7 +11,7 @@ namespace HealthSystemV2._0
 
         static void RangeChecking()
         {
-            if
+            
         }
         static void Main(string[] args)
         {
