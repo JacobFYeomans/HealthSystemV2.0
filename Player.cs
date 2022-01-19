@@ -54,6 +54,7 @@ namespace HealthSystemV2._0
                 health = health - dmg;
                 Console.WriteLine("Player has taken " + dmg + " damage.");
                 DeathCheck();
+                RangeChecking();
             }
             if (shield > 0)
             {
@@ -63,8 +64,9 @@ namespace HealthSystemV2._0
                     health = health + shield;
                     Console.WriteLine("Player has taken " + -shield + " damage through their shield.");
                     DeathCheck();
-                    shield = 0;
+                    RangeChecking();
                 }
+                RangeChecking();
             }
         }
         public void DeathCheck()
@@ -84,7 +86,8 @@ namespace HealthSystemV2._0
             if (health < 100 && health > 0)
             {
                 health = health + heal;
-                Console.WriteLine("Health has regenerated " + heal + " hitpoints");
+                RangeChecking();
+                Console.WriteLine("Health has regenerated " + heal + " hitpoints"); //will display more HP than regen EX: regen 10 hp when at 95 HP displays 10 regen'd HP
             }
             else
             {
@@ -102,7 +105,8 @@ namespace HealthSystemV2._0
             if (shield < 100)
             {
                 shield = shield + rgn;
-                Console.WriteLine("Shield has regenerated " + rgn + " hitpoints");
+                RangeChecking();
+                Console.WriteLine("Shield has regenerated " + rgn + " hitpoints"); //same issue as health
             }
             else
             {
