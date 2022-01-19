@@ -8,19 +8,52 @@ namespace HealthSystemV2._0
 {
     class Player
     {
-        private int health = 100;
-        private int lives = 3;
-        private int shield = 100;
+        public int health = 100;
+        public int lives = 3;
+        public int shield = 100;
 
+        private const int maxLives = 99;
         private const int maxHealth = 100;
         private const int maxShield = 100;
+        private const int minHealth = 0;
+        private const int minShield = 0;
+        private const int minLives = 0;
 
+        public void RangeChecking()
+        {
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
+            if (health < minHealth)
+            {
+                health = minHealth;
+            }
+            if (shield > maxShield)
+            {
+                shield = maxShield;
+            }
+            if (shield < minShield)
+            {
+                shield = minShield;
+            }
+            if (lives > maxLives)
+            {
+                lives = maxLives;
+            }
+            if (lives < minLives)
+            {
+                lives = minLives;
+            }
+
+        }
         public void TakeDamage(int dmg)
         {
             if (shield == 0)
             {
                 health = health - dmg;
                 Console.WriteLine("Player has taken " + dmg + " damage.");
+                DeathCheck();
             }
             if (shield > 0)
             {
@@ -29,8 +62,21 @@ namespace HealthSystemV2._0
                 {
                     health = health + shield;
                     Console.WriteLine("Player has taken " + -shield + " damage through their shield.");
+                    DeathCheck();
                     shield = 0;
                 }
+            }
+        }
+        public void DeathCheck()
+        {
+            if (health < 0)
+            {
+                lives = lives - 1;
+                health = 100;
+                Console.WriteLine("A live has been lost.");
+            }
+            else
+            {
             }
         }
         public void Heal(int heal)
@@ -45,9 +91,11 @@ namespace HealthSystemV2._0
                 Console.WriteLine("Health is full is full.");
             }
         }
-        public void ShowStats()
+        public void ShowHUD()
         {
-            
+            Console.WriteLine("Player Health: " + health + "/" + maxHealth);
+            Console.WriteLine("Player Shield: " + shield + "/" + maxShield);
+            Console.WriteLine("Player Lives: " + lives + "/" + maxLives);
         }
         public void RegenerateShield(int rgn)
         {
