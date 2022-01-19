@@ -17,11 +17,16 @@ namespace HealthSystemV2._0
             Player player = new Player("Jacob Yeomans");
 
             player.ShowHUD();
-            Console.WriteLine("");
             player.TakeDamage(35);
-            Console.WriteLine("");
             player.ShowHUD();
-
+            player.TakeDamage(60);
+            player.ShowHUD();
+            player.RegenerateShield(15);
+            player.ShowHUD();
+            player.TakeDamage(75);
+            player.ShowHUD();
+            player.Heal(5);
+            player.ShowHUD();
 
             Console.ReadKey(true);
         }
