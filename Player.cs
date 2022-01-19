@@ -8,15 +8,15 @@ namespace HealthSystemV2._0
 {
     class Player
     {
-        public int health;
-        public int lives;
-        public int shield;
+        public int health = 100;
+        public int lives = 3;
+        public int shield = 100;
 
-        public static void TakeDamage()
+        public static void TakeDamage(int dmg)
         {
-
+            
         }
-        public static void Heal()
+        public static void Heal(int heal)
         {
 
         }
@@ -24,7 +24,7 @@ namespace HealthSystemV2._0
         {
 
         }
-        public static void RegenerateShield()
+        public static void RegenerateShield(int rgn)
         {
 
         }
