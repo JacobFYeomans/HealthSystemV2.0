@@ -8,14 +8,14 @@ namespace HealthSystemV2._0
 {
     class Player
     {
-        public int health = 100;
-        public int lives = 3;
-        public int shield = 100;
+        private int health = 100;
+        private int lives = 3;
+        private int shield = 100;
 
         private const int maxHealth = 100;
         private const int maxShield = 100;
 
-        public static void TakeDamage(int dmg, int health, int shield)
+        public void TakeDamage(int dmg)
         {
             if (shield == 0)
             {
@@ -33,7 +33,7 @@ namespace HealthSystemV2._0
                 }
             }
         }
-        public static void Heal(int heal, int health)
+        public void Heal(int heal)
         {
             if (health < 100 && health > 0)
             {
@@ -45,11 +45,11 @@ namespace HealthSystemV2._0
                 Console.WriteLine("Health is full is full.");
             }
         }
-        public static void ShowStats()
+        public void ShowStats()
         {
-
+            
         }
-        public static void RegenerateShield(int rgn, int shield)
+        public void RegenerateShield(int rgn)
         {
             if (shield < 100)
             {
