@@ -8,8 +8,9 @@ namespace HealthSystemV2._0
 {
     class Player
     {
+        private string name;
         public int health = 100;
-        public int lives = 3;
+        public int lives = 99;
         public int shield = 100;
 
         private const int maxLives = 99;
@@ -53,16 +54,20 @@ namespace HealthSystemV2._0
             {
                 health = health - dmg;
                 Console.WriteLine("Player has taken " + dmg + " damage.");
+                Console.WriteLine("");
                 DeathCheck();
                 RangeChecking();
             }
             if (shield > 0)
             {
                 shield = shield - dmg;
+                Console.WriteLine("Player's shield has taken " + dmg + " damage.");
+                Console.WriteLine("");
                 if (shield < 0)
                 {
                     health = health + shield;
                     Console.WriteLine("Player has taken " + -shield + " damage through their shield.");
+                    Console.WriteLine("");
                     DeathCheck();
                     RangeChecking();
                 }
@@ -76,6 +81,7 @@ namespace HealthSystemV2._0
                 lives = lives - 1;
                 health = 100;
                 Console.WriteLine("A live has been lost.");
+                Console.WriteLine("");
             }
             else
             {
@@ -88,17 +94,21 @@ namespace HealthSystemV2._0
                 health = health + heal;
                 RangeChecking();
                 Console.WriteLine("Health has regenerated " + heal + " hitpoints"); //will display more HP than regen EX: regen 10 hp when at 95 HP displays 10 regen'd HP
+                Console.WriteLine("");
             }
             else
             {
                 Console.WriteLine("Health is full is full.");
+                Console.WriteLine("");
             }
         }
         public void ShowHUD()
         {
+            Console.WriteLine(name);
             Console.WriteLine("Player Health: " + health + "/" + maxHealth);
             Console.WriteLine("Player Shield: " + shield + "/" + maxShield);
-            Console.WriteLine("Player Lives: " + lives + "/" + maxLives);
+            Console.WriteLine("Player Lives: " + lives + "/" + maxLives); // 99/99???????
+            Console.WriteLine("");
         }
         public void RegenerateShield(int rgn)
         {
@@ -107,15 +117,26 @@ namespace HealthSystemV2._0
                 shield = shield + rgn;
                 RangeChecking();
                 Console.WriteLine("Shield has regenerated " + rgn + " hitpoints"); //same issue as health
+                Console.WriteLine("");
             }
             else
             {
                 Console.WriteLine("Shield is full.");
+                Console.WriteLine("");
             }
         }
-        public Player()
+        public Player(string name)
         {
             Console.WriteLine("Player class has been instantiated");
+            Console.WriteLine("");
+
+            this.name = name;
+
+            lives = maxLives;
+            health = maxHealth;
+            shield = maxShield;
+
+            Console.WriteLine();
         }
     }
 }

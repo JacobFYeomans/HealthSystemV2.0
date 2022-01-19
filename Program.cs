@@ -14,6 +14,15 @@ namespace HealthSystemV2._0
             Console.WriteLine("V2.0 = w/ OOP");
             Console.WriteLine("");
 
+            Player player = new Player("Jacob Yeomans");
+
+            player.ShowHUD();
+            Console.WriteLine("");
+            player.TakeDamage(35);
+            Console.WriteLine("");
+            player.ShowHUD();
+
+
             Console.ReadKey(true);
         }
     }
