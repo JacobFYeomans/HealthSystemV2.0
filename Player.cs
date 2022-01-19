@@ -20,6 +20,19 @@ namespace HealthSystemV2._0
         private const int minShield = 0;
         private const int minLives = 0;
 
+        public Player(string name)
+        {
+            Console.WriteLine("Player class has been instantiated");
+            Console.WriteLine("");
+
+            this.name = name;
+
+            lives = maxLives;
+            health = maxHealth;
+            shield = maxShield;
+
+            Console.WriteLine();
+        }
         public void RangeChecking()
         {
             if (health > maxHealth)
@@ -126,19 +139,6 @@ namespace HealthSystemV2._0
                 Console.WriteLine("Shield is full.");
                 Console.WriteLine("");
             }
-        }
-        public Player(string name)
-        {
-            Console.WriteLine("Player class has been instantiated");
-            Console.WriteLine("");
-
-            this.name = name;
-
-            lives = maxLives;
-            health = maxHealth;
-            shield = maxShield;
-
-            Console.WriteLine();
         }
     }
 }
