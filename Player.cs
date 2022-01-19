@@ -50,6 +50,7 @@ namespace HealthSystemV2._0
         }
         public void TakeDamage(int dmg)
         {
+            int livesBefore = lives;
             if (shield == 0)
             {
                 health = health - dmg;
@@ -58,7 +59,7 @@ namespace HealthSystemV2._0
                 DeathCheck();
                 RangeChecking();
             }
-            if (shield > 0)
+            if (shield > 0 && livesBefore == lives)
             {
                 shield = shield - dmg;
                 Console.WriteLine("Player's shield has taken " + dmg + " damage.");
@@ -76,10 +77,11 @@ namespace HealthSystemV2._0
         }
         public void DeathCheck()
         {
-            if (health < 0)
+            if (health <= 0)
             {
                 lives = lives - 1;
                 health = 100;
+                shield = 100;
                 Console.WriteLine("A live has been lost.");
                 Console.WriteLine("");
             }

@@ -27,6 +27,10 @@ namespace HealthSystemV2._0
             player.ShowHUD();
             player.Heal(5);
             player.ShowHUD();
+            player.TakeDamage(100);
+            player.ShowHUD();
+            player.TakeDamage(200);
+            player.ShowHUD();
 
             Console.ReadKey(true);
         }
