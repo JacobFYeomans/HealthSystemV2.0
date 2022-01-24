@@ -13,7 +13,7 @@ namespace HealthSystemV2._0
         protected int lives = 99;
         protected int shield = 100;
 
-        protected const int maxLives = 99;
+        protected int maxLives = 99;
         protected const int maxHealth = 100;
         protected const int maxShield = 100;
         protected const int minHealth = 0;
