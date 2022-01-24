@@ -10,27 +10,32 @@ namespace HealthSystemV2._0
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("HealthSystemV2.0");
-            Console.WriteLine("V2.0 = w/ OOP");
+            UnitTest unitTest = new UnitTest();
+            unitTest.RunUnitTest();
+            Console.Clear();
+
+            Console.WriteLine("Health System");
+            Console.WriteLine("V3.0 = w/ OOP & Inheritance");
             Console.WriteLine("");
 
             Player player = new Player("Jacob Yeomans");
+            Enemy enemy = new Enemy("Game Development");
 
-            player.ShowHUD();
-            player.TakeDamage(35);
-            player.ShowHUD();
-            player.TakeDamage(60);
-            player.ShowHUD();
-            player.RegenerateShield(15);
-            player.ShowHUD();
-            player.TakeDamage(75);
-            player.ShowHUD();
-            player.Heal(5);
-            player.ShowHUD();
-            player.TakeDamage(100);
-            player.ShowHUD();
-            player.TakeDamage(200);
-            player.ShowHUD();
+            //player.ShowHUD();
+            //player.TakeDamage(35);
+            //player.ShowHUD();
+            //player.TakeDamage(60);
+            //player.ShowHUD();
+            //player.RegenerateShield(15);
+            //player.ShowHUD();
+            //player.TakeDamage(75);
+            //player.ShowHUD();
+            //player.Heal(5);
+            //player.ShowHUD();
+            //player.TakeDamage(100);
+            //player.ShowHUD();
+            //player.TakeDamage(200);
+            //player.ShowHUD();
 
             Console.ReadKey(true);
         }
