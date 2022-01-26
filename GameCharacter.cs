@@ -59,7 +59,7 @@ namespace HealthSystemV2._0
                 DeathCheck();
                 RangeChecking();
             }
-            if (shield > 0 && livesBefore == lives && dmg > 0)
+            else if (shield > 0 && livesBefore == lives && dmg > 0)
             {
                 shield = shield - dmg;
                 Console.WriteLine("GameCharacter's shield has taken " + dmg + " damage.");
@@ -73,10 +73,10 @@ namespace HealthSystemV2._0
                     RangeChecking();
                 }
                 RangeChecking();
-                if (dmg < 0)
-                {
-                    Console.WriteLine("Invalid Damage Amount");
-                }
+            }
+            else if (dmg <= 0)
+            {
+                Console.WriteLine("Invalid Damage Amount");
             }
         }
         public void DeathCheck()
@@ -107,7 +107,7 @@ namespace HealthSystemV2._0
                 Console.WriteLine("GameCharacter's health is full.");
                 Console.WriteLine("");
             }
-            if (heal < 0)
+            if (heal <= 0)
             {
                 Console.WriteLine("Invalid Heal Amount.");
             }
@@ -134,7 +134,7 @@ namespace HealthSystemV2._0
                 Console.WriteLine("GameCharacter's shield is full.");
                 Console.WriteLine("");
             }
-            if (rgn < 0)
+            if (rgn <= 0)
             {
                 Console.WriteLine("Invalid Regen Amount.");
             }

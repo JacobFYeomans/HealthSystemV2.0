@@ -9,6 +9,9 @@ namespace HealthSystemV2._0
 {
     class Player : GameCharacter
     {
+        protected int maxValue = 2147483647;
+        protected int minValue = -2147483648;
+
         public Player(string name)
         {
             Console.WriteLine("Player class has been instantiated");
@@ -24,57 +27,56 @@ namespace HealthSystemV2._0
         }
         public void UnitTest()
         {
-            Player player = new Player("PlayerUnitTesting");
-            player.TakeDamage(101);
-            Debug.Assert(player.shield == 0);
-            Debug.Assert(player.health == 99);
-            Debug.Assert(player.lives == 99);
-            player.TakeDamage(99);
-            Debug.Assert(player.health == 100);
-            Debug.Assert(player.shield == 100);
-            Debug.Assert(player.lives == 98);
-            player.TakeDamage(300);
-            Debug.Assert(player.health == 100);
-            Debug.Assert(player.shield == 100);
-            Debug.Assert(player.lives == 97);
-            player.TakeDamage(-300);
-            Debug.Assert(player.health == 100);
-            Debug.Assert(player.shield == 100);
-            Debug.Assert(player.lives == 97);
-            player.shield = 50;
-            player.health = 50;
-            player.RegenerateShield(10);
-            Debug.Assert(player.shield == 60);
-            Debug.Assert(player.health == 50);
-            Debug.Assert(player.lives == 97);
-            player.RegenerateShield(500);
-            Debug.Assert(player.shield == 100);
-            Debug.Assert(player.health == 50);
-            Debug.Assert(player.lives == 97);
-            player.RegenerateShield(-500);
-            Debug.Assert(player.shield == 100);
-            Debug.Assert(player.health == 50);
-            Debug.Assert(player.lives == 97);
-            player.shield = 50;
-            player.health = 50;
-            player.Heal(10);
-            Debug.Assert(player.shield == 50);
-            Debug.Assert(player.health == 60);
-            Debug.Assert(player.lives == 97);
-            player.Heal(500);
-            Debug.Assert(player.shield == 50);
-            Debug.Assert(player.health == 100);
-            Debug.Assert(player.lives == 97);
-            player.Heal(-500);
-            Debug.Assert(player.shield == 50);
-            Debug.Assert(player.health == 100);
-            Debug.Assert(player.lives == 97);
+            TakeDamage(101);
+            Debug.Assert(shield == 0);
+            Debug.Assert(health == 99);
+            Debug.Assert(lives == 99);
+            TakeDamage(99);
+            Debug.Assert(health == 100);
+            Debug.Assert(shield == 100);
+            Debug.Assert(lives == 98);
+            TakeDamage(30000000);
+            Debug.Assert(health == 100);
+            Debug.Assert(shield == 100);
+            Debug.Assert(lives == 97);
+            TakeDamage(-300000000);
+            Debug.Assert(health == 100);
+            Debug.Assert(shield == 100);
+            Debug.Assert(lives == 97);
+            shield = 50;
+            health = 50;
+            RegenerateShield(10);
+            Debug.Assert(shield == 60);
+            Debug.Assert(health == 50);
+            Debug.Assert(lives == 97);
+            RegenerateShield(50000000);
+            Debug.Assert(shield == 100);
+            Debug.Assert(health == 50);
+            Debug.Assert(lives == 97);
+            RegenerateShield(-50000000);
+            Debug.Assert(shield == 100);
+            Debug.Assert(health == 50);
+            Debug.Assert(lives == 97);
+            shield = 50;
+            health = 50;
+            Heal(10);
+            Debug.Assert(shield == 50);
+            Debug.Assert(health == 60);
+            Debug.Assert(lives == 97);
+            Heal(50000000);
+            Debug.Assert(shield == 50);
+            Debug.Assert(health == 100);
+            Debug.Assert(lives == 97);
+            Heal(-50000000);
+            Debug.Assert(shield == 50);
+            Debug.Assert(health == 100);
+            Debug.Assert(lives == 97);
         }
-        private void DebugAssert(int shd, int hlt, int lvs) //could use this maybe?
+        private void DebugAssert(int shd, int hlt, int lvs)
         {
-        //    Debug.Assert(player.shield == shd);
-        //    Debug.Assert(player.health == hlt);
-        //    Debug.Assert(player.lives == lvs);
+            Debug.Assert(shield == shd);
+            Debug.Assert(health == hlt);
+            Debug.Assert(lives == lvs);
         }
     }
 }

@@ -19,7 +19,10 @@ namespace HealthSystemV2._0
             Console.WriteLine("");
 
             Player player = new Player("Jacob Yeomans");
-            Enemy enemy = new Enemy("Game Development");
+            Enemy enemy = new Enemy("Enemy Character");
+
+            Console.WriteLine("Player Character");
+            Console.WriteLine("");
 
             player.ShowHUD();
             player.TakeDamage(35);
@@ -36,6 +39,9 @@ namespace HealthSystemV2._0
             player.ShowHUD();
             player.TakeDamage(200);
             player.ShowHUD();
+
+            Console.WriteLine("Enemy Character");
+            Console.WriteLine("");
 
             enemy.ShowHUD();
             enemy.TakeDamage(35);
